@@ -8,8 +8,14 @@ int main() {
 	int lines, collumns;
 	int mines;
 	int board[64][64];
+	char buffer;
 	
-	printf("Lines (2 to 18): ");
+	printf("TABLETOP SIMULATOR -- MINESWEEPER BOARD GENERATOR\n  By: Epic Eric and Berna\n\n--------------------------------\n\nType ENTER to continue. ");
+	do
+		scanf("%c", &buffer);
+	while (buffer != '\n');
+	
+	printf("\nLines (2 to 18): ");
 	scanf("%d", &lines);
 	while(lines < 2 || lines > 18){
 		printf("ERROR: Invalid number. Please choose a number from 2 to 18: ");
@@ -35,6 +41,12 @@ int main() {
 	generateBoard(lines, collumns, mines, board);
 	
 	createFile(lines, collumns, mines, board);
+	
+	scanf("%c", &buffer);
+	printf("\nType ENTER to exit. ");
+	do
+		scanf("%c", &buffer);
+	while (buffer != '\n');
 	
 	return 0;
 }
