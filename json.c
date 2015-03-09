@@ -132,7 +132,7 @@ void createFile(int lines, int collumns, int mines, int board[][64]) {
 	              "}");
 	
 	fclose(file);
-	printf(".JSON file \"%s\" successfully created!\n", filename);
+	printf("> .JSON file \"%s\" successfully created!\n", filename);
 }
 
 static void chooseName(char filename[128]) {

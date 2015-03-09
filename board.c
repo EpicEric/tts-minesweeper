@@ -27,6 +27,8 @@ void generateBoard(int lines, int collumns, int mines, int board[][64]) {
 		} while (board[lin][col] == -1);
 		insertBomb(lin, col, board);
 	}
+	
+	printf("> Board generated.\n");
 }
 
 static void clearBoard(int lines, int collumns, int board[][64]) {
