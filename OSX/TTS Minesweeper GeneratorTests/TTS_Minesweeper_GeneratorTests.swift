@@ -2,7 +2,7 @@
 //  TTS_Minesweeper_GeneratorTests.swift
 //  TTS Minesweeper GeneratorTests
 //
-//  Created by Bernardo Lopes Leão Silva on 08/03/15.
+//  Created by Berna on 08/03/15.
 //  Copyright (c) 2015 Berna & Epic Eric. All rights reserved.
 //
 
