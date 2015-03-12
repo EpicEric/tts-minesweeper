@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		D109CF001AB0CF5A000B19B8 /* file.swift in Sources */ = {isa = PBXBuildFile; fileRef = D109CEFF1AB0CF5A000B19B8 /* file.swift */; };
+		D15D2ADC1AB20A600003EBCF /* MainSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EC21341AB0CAF0003AA61B /* MainSB.storyboard */; };
 		D17886BB1AB0CB540025279F /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17886B81AB0CB540025279F /* Board.swift */; };
 		D17886BC1AB0CB540025279F /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17886B91AB0CB540025279F /* json.swift */; };
 		D17886BD1AB0CB540025279F /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17886BA1AB0CB540025279F /* Support.swift */; };
 		D1EC212F1AB0CAEF003AA61B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC212E1AB0CAEF003AA61B /* AppDelegate.swift */; };
 		D1EC21311AB0CAEF003AA61B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC21301AB0CAEF003AA61B /* ViewController.swift */; };
 		D1EC21331AB0CAF0003AA61B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1EC21321AB0CAF0003AA61B /* Images.xcassets */; };
-		D1EC21361AB0CAF0003AA61B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1EC21341AB0CAF0003AA61B /* Main.storyboard */; };
 		D1EC21421AB0CAF0003AA61B /* TTS_Minesweeper_GeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC21411AB0CAF0003AA61B /* TTS_Minesweeper_GeneratorTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +38,7 @@
 		D1EC212E1AB0CAEF003AA61B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1EC21301AB0CAEF003AA61B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D1EC21321AB0CAF0003AA61B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D1EC21351AB0CAF0003AA61B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D1EC21351AB0CAF0003AA61B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainSB.storyboard; sourceTree = "<group>"; };
 		D1EC213B1AB0CAF0003AA61B /* TTS Minesweeper GeneratorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TTS Minesweeper GeneratorTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1EC21401AB0CAF0003AA61B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1EC21411AB0CAF0003AA61B /* TTS_Minesweeper_GeneratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTS_Minesweeper_GeneratorTests.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 				D1EC212E1AB0CAEF003AA61B /* AppDelegate.swift */,
 				D1EC21301AB0CAEF003AA61B /* ViewController.swift */,
 				D1EC21321AB0CAF0003AA61B /* Images.xcassets */,
-				D1EC21341AB0CAF0003AA61B /* Main.storyboard */,
+				D1EC21341AB0CAF0003AA61B /* MainSB.storyboard */,
 				D1EC212C1AB0CAEF003AA61B /* Supporting Files */,
 			);
 			path = "TTS Minesweeper Generator";
@@ -202,7 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1EC21331AB0CAF0003AA61B /* Images.xcassets in Resources */,
-				D1EC21361AB0CAF0003AA61B /* Main.storyboard in Resources */,
+				D15D2ADC1AB20A600003EBCF /* MainSB.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,12 +248,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D1EC21341AB0CAF0003AA61B /* Main.storyboard */ = {
+		D1EC21341AB0CAF0003AA61B /* MainSB.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				D1EC21351AB0CAF0003AA61B /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainSB.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

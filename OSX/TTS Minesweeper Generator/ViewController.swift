@@ -61,9 +61,18 @@ class ViewController: NSViewController {
             let alert = NSAlert()
             alert.messageText = "File created successfully!"
             alert.informativeText = "Open Tabletop Simulator, start a new Single or Multiplayer game, select \"Menu\" -> \"Load Game\" and choose to Load Slot \(identifier) to start sweeping mines!"
-            alert.runModal()
+            alert.addButtonWithTitle("Close")
+            alert.addButtonWithTitle("Open Tabletop Simulator")
+            alert.beginSheetModalForWindow(view.window!, completionHandler: receiveButton)
         }
     }
+    
+    func receiveButton(button: NSModalResponse) {
+        if (button == NSAlertSecondButtonReturn){
+            NSWorkspace.sharedWorkspace().openURL(NSURL(string: "steam://run/286160")!)
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
