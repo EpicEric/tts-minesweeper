@@ -10,25 +10,30 @@ import Foundation
 
 public class json {
     
-    class func chooseName() -> (String, Int) {
+    class func chooseName(basePath: NSURL) -> (NSURL, Int){
         var i = 0
-        var path: String
-        let basePath = NSHomeDirectory() + "/My Games/Tabletop Simulator/Saves/"
+        var completePath: NSURL?
         do {
             i++
-            path = "TS_Save_\(i).json"
-        } while File.exists(basePath + path)
-        return (basePath + path, i)
+            completePath = NSURL(string: "TS_Save_\(i).json", relativeToURL: basePath)
+        } while (File.exists(completePath!))
+        return (completePath!, i)
     }
     
-    class func createFile(lines: Int, collumns: Int, mines: Int, board: Support.Matrix) -> (Bool, Int) {
+    class func createFile(lines: Int, collumns: Int, mines: Int, board: Support.Matrix, basePath: NSURL? = NSURL(string: "file://" + NSHomeDirectory() + "/My%20Games/Tabletop%20Simulator/Saves/")) -> (Bool, Int) {
         var i: Int, j: Int, posX: Double, posZ: Double
         
-        var (path, identifier) = chooseName()
+        var (path, identifier): (NSURL, Int)
+        
+        if let actualBasePath = basePath {
+            (path, identifier) = chooseName(actualBasePath)
+        } else {
+            return (false, -1)
+        }
         
         var file = File(path: path)
         
-        if (NSFileManager().createFileAtPath(path, contents: nil, attributes: nil)){
+        if (NSFileManager().createFileAtPath(path.path!, contents: nil, attributes: nil)){
             posX = (Double) ((-collumns) + ((collumns - 1)%2))
             posZ = (Double) (lines - ((lines - 1)%2))
             file.write( "{\n" +
@@ -141,9 +146,7 @@ public class json {
                 }
             }
             file.write("\n  ]\n}")
-            file.save()
-            return (true, identifier)
-
+            return (file.save(), identifier)
         }
         return (false, -1)
     }

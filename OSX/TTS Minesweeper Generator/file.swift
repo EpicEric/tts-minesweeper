@@ -11,15 +11,15 @@ import Foundation
 class File {
     
     var buffer:String = ""
-    var path:String = ""
+    var path:NSURL
     var encoding = NSUTF8StringEncoding
     
-    init(path: String){
+    init(path: NSURL){
         self.path = path
     }
     
-    class func exists (path: String) -> Bool {
-        return NSFileManager().fileExistsAtPath(path)
+    class func exists (path: NSURL) -> Bool {
+        return NSFileManager().fileExistsAtPath(path.path!)
     }
     
     func write (content: String) {
@@ -27,6 +27,6 @@ class File {
     }
     
     func save () -> Bool {
-        return buffer.writeToFile(path, atomically: true, encoding: encoding, error: nil)
+        return buffer.writeToURL(path, atomically: true, encoding: encoding, error: nil)
     }
 }
