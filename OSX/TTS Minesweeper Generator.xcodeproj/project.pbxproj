@@ -35,6 +35,7 @@
 		D17886B81AB0CB540025279F /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		D17886B91AB0CB540025279F /* json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
 		D17886BA1AB0CB540025279F /* Support.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
+		D18185CB1AB3AAED00AC50D0 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/MainSB.strings; sourceTree = "<group>"; };
 		D1EC21291AB0CAEF003AA61B /* TTS Minesweeper Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TTS Minesweeper Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1EC212D1AB0CAEF003AA61B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1EC212E1AB0CAEF003AA61B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +257,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D1EC21351AB0CAF0003AA61B /* Base */,
+				D18185CB1AB3AAED00AC50D0 /* pt */,
 			);
 			name = MainSB.storyboard;
 			sourceTree = "<group>";

@@ -38,14 +38,11 @@ public  class Board{
     class func insertBomb(line: Int, collumn: Int, board: Support.Matrix) -> Support.Matrix{
         var newBoard = board
         newBoard[line, collumn] = -1
-        newBoard = increaseTile(line-1, collumn: collumn-1, board: newBoard)
-        newBoard = increaseTile(line-1, collumn: collumn,   board: newBoard)
-        newBoard = increaseTile(line-1, collumn: collumn+1, board: newBoard)
-        newBoard = increaseTile(line,   collumn: collumn-1, board: newBoard)
-        newBoard = increaseTile(line,   collumn: collumn+1, board: newBoard)
-        newBoard = increaseTile(line+1, collumn: collumn-1, board: newBoard)
-        newBoard = increaseTile(line+1, collumn: collumn,   board: newBoard)
-        newBoard = increaseTile(line+1, collumn: collumn+1, board: newBoard)
+        for (var i = line - 1 ; i <= line + 1; i++){
+            for (var j = collumn - 1; j <= collumn + 1; j++){
+                newBoard = increaseTile(i, collumn: j, board: newBoard)
+            }
+        }
         return newBoard
     }
     
