@@ -38,8 +38,8 @@ class ViewController: NSViewController {
             minesSlider.integerValue = maxMines
         }
         mines = minesSlider.integerValue
-        linesLabel.stringValue = "\(lines) lines"
-        minesLabel.stringValue = "\(mines) mines (\((100*mines)/(lines*collumns))%)"
+        linesLabel.stringValue = String(format: NSLocalizedString("NumberOfLines", comment: "Number of lines"), lines)
+        minesLabel.stringValue = String(format: NSLocalizedString("NumberOfMines", comment: "Shows the current number of mines."), mines) + " (\((100*mines)/(lines*collumns))%)"
         maxMinesLabel.stringValue = "\(maxMines)"
     }
     
@@ -51,14 +51,14 @@ class ViewController: NSViewController {
             minesSlider.integerValue = maxMines
         }
         mines = minesSlider.integerValue
-        collumnsLabel.stringValue = "\(collumns) collumns"
-        minesLabel.stringValue = "\(mines) mines (\((100*mines)/(lines*collumns))%)"
+        collumnsLabel.stringValue = String(format: NSLocalizedString("NumberOfCollumns", comment: "Number of collumns"), collumns)
+        minesLabel.stringValue = String(format: NSLocalizedString("NumberOfMines", comment: "Shows the current number of mines."), mines) + " (\((100*mines)/(lines*collumns))%)"
         maxMinesLabel.stringValue = "\(maxMines)"
     }
     
     @IBAction func minesSliderChanged(sender: NSSlider) {
         mines = minesSlider.integerValue
-        minesLabel.stringValue = "\(mines) mines (\((100*mines)/(lines*collumns))%)"
+        minesLabel.stringValue = String(format: NSLocalizedString("NumberOfMines", comment: "Shows the current number of mines."), mines) + " (\((100*mines)/(lines*collumns))%)"
     }
     
     @IBAction func changeFolderButtonPressed(sender: NSButton) {
@@ -71,21 +71,21 @@ class ViewController: NSViewController {
             if (result == NSFileHandlingPanelOKButton && directoryPicker.URL != nil){
                 self.saveLocation = directoryPicker.URL!
             }})
-        saveFolderLabel.stringValue = "Save folder:\n" + saveLocation.path!
+        updateSaveFolderLabel()
     }
     @IBAction func generateButtonPressed(sender: NSButton) {
         var board = Board.generateBoard(lines, collumns: collumns, mines: mines)
         let (created, identifier) = json.createFile(lines, collumns: collumns, mines: mines, board: board, basePath: saveLocation)
         let alert = NSAlert()
         if (created){
-            alert.messageText = "File created successfully!"
-            alert.informativeText = "Open Tabletop Simulator, start a new Single or Multiplayer game, select \"Menu\" -> \"Load Game\" and Load Slot \(identifier) to start sweeping mines!"
-            alert.addButtonWithTitle("Close")
-            alert.addButtonWithTitle("Open Tabletop Simulator")
+            alert.messageText = NSLocalizedString("FileCreatedTitle", comment: "Title of the successful file creation alert")
+            alert.informativeText = String(format: NSLocalizedString("FileCreatedDesc", comment: "Description of the successful file creation alert"), identifier)
+            alert.addButtonWithTitle(NSLocalizedString("CloseButton", comment: "Button to close the alert."))
+            alert.addButtonWithTitle(NSLocalizedString("OpenTTSButton", comment: "Button to open the game."))
             alert.beginSheetModalForWindow(view.window!, completionHandler: receiveButton)
         } else {
-            alert.messageText = "Could not create file!"
-            alert.informativeText = "Please check if you chose the right folder. Try to uncheck \"Choose save location\" and try again."
+            alert.messageText = NSLocalizedString("FileErrorTitle", comment: "Title of the unsuccessful file creation alert")
+            alert.informativeText = NSLocalizedString("FileErrorDesc", comment: "Description of the unsuccessful file creation alert")
             alert.beginSheetModalForWindow(view.window!, completionHandler: receiveButton)
         }
     }
@@ -98,10 +98,13 @@ class ViewController: NSViewController {
         }
     }
     
+    func updateSaveFolderLabel (){
+        saveFolderLabel.stringValue = NSLocalizedString("FolderLocationTitle", comment: "The folder where the resultant file will be saved.") + saveLocation.path!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveFolderLabel.stringValue = "Save folder:\n" + NSHomeDirectory() + "/My Games/Tabletop Simulator/Saves/"
+        updateSaveFolderLabel()
     }
 
     override var representedObject: AnyObject? {
