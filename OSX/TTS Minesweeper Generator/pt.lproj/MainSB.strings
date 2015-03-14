@@ -1,0 +1,99 @@
+
+/* Class = "NSMenuItem"; title = "TTS Minesweeper Generator"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "TTS Minesweeper Generator";
+
+/* Class = "NSTextFieldCell"; title = "(1 to 149)"; ObjectID = "4kO-U3-hv1"; */
+"4kO-U3-hv1.title" = "(1 to 149)";
+
+/* Class = "NSMenuItem"; title = "Quit TTS Minesweeper Generator"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit TTS Minesweeper Generator";
+
+/* Class = "NSMenuItem"; title = "About TTS Minesweeper Generator"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About TTS Minesweeper Generator";
+
+/* Class = "NSTextFieldCell"; placeholderString = "2 to 18"; ObjectID = "7fQ-Sc-2Md"; */
+"7fQ-Sc-2Md.placeholderString" = "2 to 18";
+
+/* Class = "NSTextFieldCell"; title = "10"; ObjectID = "7fQ-Sc-2Md"; */
+"7fQ-Sc-2Md.title" = "10";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSButtonCell"; title = "Change Folder"; ObjectID = "Bdr-nc-sEo"; */
+"Bdr-nc-sEo.title" = "Change Folder";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "Close";
+
+/* Class = "NSTextFieldCell"; title = "Collumns"; ObjectID = "ENy-Jd-8lO"; */
+"ENy-Jd-8lO.title" = "Collumns";
+
+/* Class = "NSTextFieldCell"; title = "Lines"; ObjectID = "IOa-X0-lhf"; */
+"IOa-X0-lhf.title" = "Lines";
+
+/* Class = "NSWindow"; title = "TTS Minesweeper Generator"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "TTS Minesweeper Generator";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSTextFieldCell"; placeholderString = "2 to 28"; ObjectID = "Kfo-3i-V4X"; */
+"Kfo-3i-V4X.placeholderString" = "2 to 28";
+
+/* Class = "NSTextFieldCell"; title = "15"; ObjectID = "Kfo-3i-V4X"; */
+"Kfo-3i-V4X.title" = "15";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Bring All to Front";
+
+/* Class = "NSButtonCell"; title = "Generate"; ObjectID = "Mb5-bh-mkF"; */
+"Mb5-bh-mkF.title" = "Generate";
+
+/* Class = "NSTextFieldCell"; placeholderString = "1 to 150"; ObjectID = "N95-I6-Tb5"; */
+"N95-I6-Tb5.placeholderString" = "1 to 150";
+
+/* Class = "NSTextFieldCell"; title = "75"; ObjectID = "N95-I6-Tb5"; */
+"N95-I6-Tb5.title" = "75";
+
+/* Class = "NSTextFieldCell"; title = "(2 to 28)"; ObjectID = "OU1-tk-0n8"; */
+"OU1-tk-0n8.title" = "(2 to 28)";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimize";
+
+/* Class = "NSMenuItem"; title = "Hide TTS Minesweeper Generator"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide TTS Minesweeper Generator";
+
+/* Class = "NSTextFieldCell"; title = "50%"; ObjectID = "Oot-l0-nNB"; */
+"Oot-l0-nNB.title" = "50%";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSTextFieldCell"; title = "Save folder: ~/My Games/Tabletop Simulator/Saves/"; ObjectID = "aEq-FL-peI"; */
+"aEq-FL-peI.title" = "Save folder: ~/My Games/Tabletop Simulator/Saves/";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Window";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "File";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "File";
+
+/* Class = "NSTextFieldCell"; title = "(2 to 18)"; ObjectID = "dRI-2R-0h0"; */
+"dRI-2R-0h0.title" = "(2 to 18)";
+
+/* Class = "NSTextFieldCell"; title = "Mines"; ObjectID = "ii1-42-fqg"; */
+"ii1-42-fqg.title" = "Mines";
+
+/* Class = "NSMenu"; title = "TTS Minesweeper Generator"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "TTS Minesweeper Generator";
