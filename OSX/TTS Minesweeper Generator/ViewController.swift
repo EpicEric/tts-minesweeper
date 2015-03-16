@@ -30,20 +30,8 @@ class ViewController: NSViewController {
     
     var saveLocation = NSURL(string: "file://" + NSHomeDirectory() + "/My%20Games/Tabletop%20Simulator/Saves/")!
     
-    @IBAction func linesSliderChanged(sender: NSSlider) {
+    @IBAction func sliderChanged(sender: NSSlider) {
         lines = linesSlider.integerValue
-        maxMines = lines*collumns - 1
-        minesSlider.maxValue = Double(maxMines)
-        if (mines > maxMines){
-            minesSlider.integerValue = maxMines
-        }
-        mines = minesSlider.integerValue
-        linesLabel.stringValue = String(format: NSLocalizedString("NumberOfLines", comment: "Number of lines"), lines)
-        minesLabel.stringValue = String(format: NSLocalizedString("NumberOfMines", comment: "Shows the current number of mines."), mines) + " (\((100*mines)/(lines*collumns))%)"
-        maxMinesLabel.stringValue = "\(maxMines)"
-    }
-    
-    @IBAction func collumnsSliderChanged(sender: NSSlider) {
         collumns = collumnsSlider.integerValue
         maxMines = lines*collumns - 1
         minesSlider.maxValue = Double(maxMines)
@@ -51,14 +39,10 @@ class ViewController: NSViewController {
             minesSlider.integerValue = maxMines
         }
         mines = minesSlider.integerValue
+        linesLabel.stringValue = String(format: NSLocalizedString("NumberOfLines", comment: "Number of lines"), lines)
         collumnsLabel.stringValue = String(format: NSLocalizedString("NumberOfCollumns", comment: "Number of collumns"), collumns)
         minesLabel.stringValue = String(format: NSLocalizedString("NumberOfMines", comment: "Shows the current number of mines."), mines) + " (\((100*mines)/(lines*collumns))%)"
         maxMinesLabel.stringValue = "\(maxMines)"
-    }
-    
-    @IBAction func minesSliderChanged(sender: NSSlider) {
-        mines = minesSlider.integerValue
-        minesLabel.stringValue = String(format: NSLocalizedString("NumberOfMines", comment: "Shows the current number of mines."), mines) + " (\((100*mines)/(lines*collumns))%)"
     }
     
     @IBAction func changeFolderButtonPressed(sender: NSButton) {

@@ -183,7 +183,7 @@
                                 <rect key="frame" x="84" y="270" width="397" height="27"/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="2" maxValue="18" doubleValue="10" tickMarkPosition="below" numberOfTickMarks="17" allowsTickMarkValuesOnly="YES" sliderType="linear" id="bx5-Ve-46T"/>
                                 <connections>
-                                    <action selector="linesSliderChanged:" target="XfG-lQ-9wD" id="Giv-Tl-w53"/>
+                                    <action selector="sliderChanged:" target="XfG-lQ-9wD" id="bWJ-lr-iEQ"/>
                                 </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="j40-n3-RsX">
@@ -198,7 +198,7 @@
                                 <rect key="frame" x="84" y="209" width="397" height="27"/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" minValue="2" maxValue="28" doubleValue="15" tickMarkPosition="below" numberOfTickMarks="27" allowsTickMarkValuesOnly="YES" sliderType="linear" id="Dfs-mZ-hdn"/>
                                 <connections>
-                                    <action selector="collumnsSliderChanged:" target="XfG-lQ-9wD" id="gXf-Kb-mr3"/>
+                                    <action selector="sliderChanged:" target="XfG-lQ-9wD" id="8Ew-9T-okx"/>
                                 </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="atC-ZW-PzT">
@@ -235,7 +235,7 @@
                                 <rect key="frame" x="84" y="146" width="397" height="27"/>
                                 <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="149" doubleValue="75" tickMarkPosition="below" numberOfTickMarks="2" sliderType="linear" id="dYE-KP-mC8"/>
                                 <connections>
-                                    <action selector="minesSliderChanged:" target="XfG-lQ-9wD" id="IUR-l4-F6r"/>
+                                    <action selector="sliderChanged:" target="XfG-lQ-9wD" id="wdP-k6-TqU"/>
                                 </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fuA-ut-Pkr">
