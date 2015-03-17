@@ -14,6 +14,7 @@
 		D17886BD1AB0CB540025279F /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17886BA1AB0CB540025279F /* Support.swift */; };
 		D1866F5F1AB4D432007D4B72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1866F611AB4D432007D4B72 /* Localizable.strings */; };
 		D1866F701AB4E0B7007D4B72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1866F721AB4E0B7007D4B72 /* Localizable.strings */; };
+		D19C40851AB8953C0064D0E3 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19C40841AB8953C0064D0E3 /* Generator.swift */; };
 		D1EC212F1AB0CAEF003AA61B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC212E1AB0CAEF003AA61B /* AppDelegate.swift */; };
 		D1EC21311AB0CAEF003AA61B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1EC21301AB0CAEF003AA61B /* ViewController.swift */; };
 		D1EC21331AB0CAF0003AA61B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1EC21321AB0CAF0003AA61B /* Images.xcassets */; };
@@ -38,6 +39,7 @@
 		D1866F5C1AB4D36E007D4B72 /* pt */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/MainSB.strings; sourceTree = "<group>"; };
 		D1866F601AB4D432007D4B72 /* pt */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = pt; path = pt.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1866F711AB4E0B7007D4B72 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D19C40841AB8953C0064D0E3 /* Generator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Generator.swift; sourceTree = "<group>"; };
 		D1EC21291AB0CAEF003AA61B /* TTS Minesweeper Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TTS Minesweeper Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1EC212D1AB0CAEF003AA61B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1EC212E1AB0CAEF003AA61B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				D1EC21321AB0CAF0003AA61B /* Images.xcassets */,
 				D1EC21341AB0CAF0003AA61B /* MainSB.storyboard */,
 				D1EC212C1AB0CAEF003AA61B /* Supporting Files */,
+				D19C40841AB8953C0064D0E3 /* Generator.swift */,
 			);
 			path = "TTS Minesweeper Generator";
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				D109CF001AB0CF5A000B19B8 /* file.swift in Sources */,
 				D17886BD1AB0CB540025279F /* Support.swift in Sources */,
 				D1EC212F1AB0CAEF003AA61B /* AppDelegate.swift in Sources */,
+				D19C40851AB8953C0064D0E3 /* Generator.swift in Sources */,
 				D17886BB1AB0CB540025279F /* Board.swift in Sources */,
 				D17886BC1AB0CB540025279F /* json.swift in Sources */,
 			);
