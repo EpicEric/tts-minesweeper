@@ -10,37 +10,38 @@ import Foundation
 
 class Generator {
     
-    var lines: Int = 0 { didSet { maxMines = lines * collumns - 1 } }
+    private var lines: Int = 0 { didSet { maxMines = lines * collumns - 1 } }
 
-    var collumns: Int = 0 { didSet { maxMines = lines * collumns - 1 } }
+    private var collumns: Int = 0 { didSet { maxMines = lines * collumns - 1 } }
     
-    var mines = 0
+    private var mines = 0
     
-    var maxMines: Int = 0 { didSet { mines = min(mines, maxMines) } }
+    private var maxMines: Int = 0 { didSet { mines = min(mines, maxMines) } }
     
-    var saveLocation: NSURL = NSURL(string: "file://" + NSHomeDirectory() + "/My%20Games/Tabletop%20Simulator/Saves/")!
+    private var saveLocation: NSURL = NSURL(string: "file://" + NSHomeDirectory() + "/My%20Games/Tabletop%20Simulator/Saves/")!
     
-    let typeLines = 0, typeCollumns = 1, typeMines = 2
-    
-    
-    func updateValue(type: Int, value: Int) -> Int{
-        switch type {
-        case typeLines:
-            lines = value
-            return maxMines
-        case typeCollumns:
-            collumns = value
-            return maxMines
-        case typeMines:
-            mines = value
-            return maxMines
-        default: return maxMines
-        }
+    func updateValuesOf(#lines: Int, collumns: Int, mines: Int) -> (lines: Int, collumns: Int, mines: Int, maxMines: Int){
+        self.lines = lines
+        self.collumns = collumns
+        self.mines = mines
+        return (self.lines, self.collumns, self.mines, self.maxMines)
     }
     
-    func updateSaveLocation(url: NSURL) -> String {
+    func updateSaveLocation(url: NSURL) -> NSURL? {
         saveLocation = url
-        return saveLocation.path!
+        return saveLocation
+    }
+    
+    func updateSaveLocation(path: String) -> NSURL? {
+        if let location = NSURL(string: path){
+            self.saveLocation = location
+            return self.saveLocation
+        }
+        return nil
+    }
+    
+    func getSaveLocation() -> NSURL {
+        return self.saveLocation
     }
     
     func generate () -> (Bool, Int) {

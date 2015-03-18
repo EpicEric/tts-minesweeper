@@ -29,29 +29,23 @@ class ViewController: NSViewController {
     
     var gen = Generator()
     
-    
     @IBAction func sliderChanged(sender: NSSlider) {
-        switch sender {
-        case linesSlider:
-            minesSlider.maxValue = Double(gen.updateValue(gen.typeLines, value: sender.integerValue))
-        case collumnsSlider:
-            minesSlider.maxValue = Double(gen.updateValue(gen.typeCollumns, value: sender.integerValue))
-        case minesSlider:
-            minesSlider.maxValue = Double(gen.updateValue(gen.typeMines, value: sender.integerValue))
-        default: break
-        }
-        minesSlider.integerValue = gen.mines
-        linesLabel.stringValue = String(format: NSLocalizedString("NumberOfLines", comment: "Number of lines"), gen.lines)
-        collumnsLabel.stringValue = String(format: NSLocalizedString("NumberOfCollumns", comment: "Number of collumns"), gen.collumns)
-        minesLabel.stringValue = String(format: NSLocalizedString("NumberOfMines", comment: "Shows the current number of mines."), gen.mines) + " (\((100*gen.mines)/(gen.lines*gen.collumns))%)"
-        maxMinesLabel.stringValue = "\(gen.maxMines)"
+        let updatedValues = gen.updateValuesOf(lines: linesSlider.integerValue, collumns: collumnsSlider.integerValue, mines: minesSlider.integerValue)
+        minesSlider.integerValue = updatedValues.mines
+        minesSlider.maxValue = Double(updatedValues.maxMines)
+        minesSlider.numberOfTickMarks = Int(minesSlider.maxValue / 10)
+        linesLabel.stringValue = String(format: NSLocalizedString("NumberOfLines", comment: "Number of lines"), updatedValues.lines)
+        collumnsLabel.stringValue = String(format: NSLocalizedString("NumberOfCollumns", comment: "Number of collumns"), updatedValues.collumns)
+        minesLabel.stringValue = String(format: NSLocalizedString("NumberOfMines", comment: "Shows the current number of mines."), updatedValues.mines) + " (\((100*updatedValues.mines)/(updatedValues.lines*updatedValues.collumns))%)"
+        maxMinesLabel.stringValue = "\(updatedValues.maxMines)"
     }
     
     @IBAction func changeFolderButtonPressed(sender: NSButton) {
-        directoryPicker.directoryURL = gen.saveLocation
         directoryPicker.beginSheetModalForWindow(view.window!, completionHandler: {(result) -> Void in
             if (result == NSFileHandlingPanelOKButton && self.directoryPicker.URL != nil){
-                self.updateSaveFolderLabel(self.gen.updateSaveLocation(self.directoryPicker.URL!))
+                if let url = self.gen.updateSaveLocation(self.directoryPicker.URL!) {
+                    self.updateSaveFolderLabel(url.path!)
+                }
             }})
     }
     
@@ -89,7 +83,7 @@ class ViewController: NSViewController {
         directoryPicker.canChooseDirectories = true
         directoryPicker.canChooseFiles = false
         directoryPicker.allowsMultipleSelection = false
-        updateSaveFolderLabel(gen.saveLocation.path!)
+        updateSaveFolderLabel(gen.getSaveLocation().path!)
     }
 
     override var representedObject: AnyObject? {

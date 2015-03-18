@@ -233,7 +233,7 @@
                             </textField>
                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Q8-mt-jEh">
                                 <rect key="frame" x="84" y="146" width="397" height="27"/>
-                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="149" doubleValue="75" tickMarkPosition="below" numberOfTickMarks="2" sliderType="linear" id="dYE-KP-mC8"/>
+                                <sliderCell key="cell" continuous="YES" state="on" alignment="left" maxValue="149" doubleValue="75" tickMarkPosition="below" numberOfTickMarks="14" sliderType="linear" id="dYE-KP-mC8"/>
                                 <connections>
                                     <action selector="sliderChanged:" target="XfG-lQ-9wD" id="wdP-k6-TqU"/>
                                 </connections>
