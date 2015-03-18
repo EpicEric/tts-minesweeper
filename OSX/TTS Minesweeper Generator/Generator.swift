@@ -10,20 +10,25 @@ import Foundation
 
 class Generator {
     
-    private var lines: Int = 0 { didSet { maxMines = lines * collumns - 1 } }
+    private var lines: Int = 0
 
-    private var collumns: Int = 0 { didSet { maxMines = lines * collumns - 1 } }
+    private var collumns: Int = 0
     
     private var mines = 0
     
-    private var maxMines: Int = 0 { didSet { mines = min(mines, maxMines) } }
+    private var maxMines: Int {
+        get {
+            return self.lines * self.collumns - 1
+        }
+    }
     
     private var saveLocation: NSURL = NSURL(string: "file://" + NSHomeDirectory() + "/My%20Games/Tabletop%20Simulator/Saves/")!
+    
     
     func updateValuesOf(#lines: Int, collumns: Int, mines: Int) -> (lines: Int, collumns: Int, mines: Int, maxMines: Int){
         self.lines = lines
         self.collumns = collumns
-        self.mines = mines
+        self.mines = min(mines, self.maxMines)
         return (self.lines, self.collumns, self.mines, self.maxMines)
     }
     
