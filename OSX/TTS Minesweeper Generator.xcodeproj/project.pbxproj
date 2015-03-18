@@ -94,6 +94,7 @@
 				D17886B81AB0CB540025279F /* Board.swift */,
 				D17886B91AB0CB540025279F /* json.swift */,
 				D109CEFF1AB0CF5A000B19B8 /* file.swift */,
+				D19C40841AB8953C0064D0E3 /* Generator.swift */,
 				D17886BA1AB0CB540025279F /* Support.swift */,
 				D1EC212E1AB0CAEF003AA61B /* AppDelegate.swift */,
 				D1EC21301AB0CAEF003AA61B /* ViewController.swift */,
@@ -101,7 +102,6 @@
 				D1EC21321AB0CAF0003AA61B /* Images.xcassets */,
 				D1EC21341AB0CAF0003AA61B /* MainSB.storyboard */,
 				D1EC212C1AB0CAEF003AA61B /* Supporting Files */,
-				D19C40841AB8953C0064D0E3 /* Generator.swift */,
 			);
 			path = "TTS Minesweeper Generator";
 			sourceTree = "<group>";
