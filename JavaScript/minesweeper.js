@@ -50,10 +50,8 @@ function generate() {
     
     generateBoard();
     
-    debugger;
-    
     // DEBUG
-    //alert(JSON.stringify(board))
+    alert(JSON.stringify(board));
 }
 
 /***************************************************************/
@@ -67,10 +65,10 @@ function generate() {
 // Credits to Michael Butler @ https://github.com/michaelbutler/minesweeper
 function generateBoard() {
     var array = [], // 1-d array, with LxC, which will be ported to the main board at the end
-    i, max;
+    i, max = lines*collumns;
     
     // Put all mines in the beginning
-    for (i = 0, max = lines*collumns; i < max; i++) {
+    for (i = 0; i < max; i++) {
         if (i < mines) {
             array[i] = 1;
         }
@@ -78,31 +76,31 @@ function generateBoard() {
             array[i] = 0;
 		}
     }
-
-    fisherYates(array);
-        
-    makeBoard(array);
+    
+    fisherYates(array); // Randomizes mine position
+    
+    makeBoard(array); // Passes 1-d array to 2-d board
 }
 
 // Shuffle array, so it's like pulling out of a "hat"
 // Credit: http://sedition.com/perl/javascript-fy.html
 function fisherYates (myArray) {
-    var x = myArray.length, y, tempx, tempy;
-    if (x === 0) {
+    var i = myArray.length, j, tempi, tempj;
+    if (i === 0) {
         return;
     }
-    while (--x) {
-        y = Math.floor(Math.random() * (x + 1));
-        tempx = myArray[x];
-        tempy = myArray[y];
-        myArray[x] = tempx;
-        myArray[y] = tempy;
+    while (--i) {
+        j = Math.floor(Math.random() * (i + 1));
+        tempi = myArray[i];
+        tempj = myArray[j];
+        myArray[i] = tempj;
+        myArray[j] = tempi;
     }
 }
 
-// Place the array in the board
-// Here I use a [lines+2][collumns+2] board with valid entries [1..lines][1..collumns].
-// This makes it easier to use functions such as insertBomb without corner verifications.
+// Add array's data to the board
+// Here I use a (lines+2)x(collumns+2) board with valid entries [1..lines][1..collumns].
+// This makes it easier to use tile-based functions without corner verifications.
 function makeBoard(myArray) {
     var l, c, count;
     
@@ -117,11 +115,9 @@ function makeBoard(myArray) {
     
     // Place mines in board (only valid positions)
     count = 0;
-    l = 1;
-    c = 1;
-    for (; l <= lines; l++) {
-        for (; c <= collumns; c++) {
-            if (myArray[count++] === 1) {
+    for (l = 1; l <= lines; l++) {
+        for (c = 1; c <= collumns; c++) {
+            if (myArray[count] === 1) {
             	// Places bomb (-1) in given position, and increases count on neighboring cells
             	board[l][c] = -1;
             	increaseTile(l-1, c-1);
@@ -133,11 +129,12 @@ function makeBoard(myArray) {
             	increaseTile(l+1, c  );
             	increaseTile(l+1, c+1);
             }
+            count++;
         }
     }
 }
 
-// Increases count on cell if it doesn't hold a bomb
+// Increases count in cell if it doesn't hold a bomb
 function increaseTile(x, y) {
     if (board[x][y] === -1) return;
     board[x][y] += 1;
@@ -148,3 +145,5 @@ function increaseTile(x, y) {
 /* PART 3: FILE CREATION                                       */
 /*                                                             */
 /***************************************************************/
+
+// TODO: Implement TTS JSON file
