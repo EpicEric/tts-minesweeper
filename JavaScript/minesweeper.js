@@ -13,33 +13,33 @@ var board = [];
 // Grabs and sets number of lines from slider
 function setL(value) {
     document.getElementById('valueL').innerHTML = value;
-    lines = value;
+    lines = parseInt(value);
     adjustMines();
 }
     
 // Grabs and sets number of collumns from slider
 function setC(value) {
     document.getElementById('valueC').innerHTML = value;
-    collumns = value;
+    collumns = parseInt(value);
     adjustMines();
 }
 
 // Grabs and sets number of mines from slider
 function setM(value) {
     document.getElementById('valueM').innerHTML = value;
-    mines = value;
+    mines = parseInt(value);
 }
 
 // Adjusts number of mines (max and current) according to lines and collumns
 function adjustMines() {
-    maxMines = lines*collumns - 1;
+    maxMines = (lines*collumns) - 1;
     
     document.getElementById('mineSlider').setAttribute("max", maxMines);
     document.getElementById('valueMax').innerHTML = maxMines;
     
     if (mines > maxMines) {
         document.getElementById('valueM').innerHTML = maxMines;
-        mines = maxMines;
+        mines = parseInt(maxMines);
     }
 }
 
@@ -50,8 +50,10 @@ function generate() {
     
     generateBoard();
     
+    debugger;
+    
     // DEBUG
-    alert(JSON.stringify(board))
+    //alert(JSON.stringify(board))
 }
 
 /***************************************************************/
@@ -102,21 +104,27 @@ function fisherYates (myArray) {
 // Here I use a [lines+2][collumns+2] board with valid entries [1..lines][1..collumns].
 // This makes it easier to use functions such as insertBomb without corner verifications.
 function makeBoard(myArray) {
-    var l, c, count;
+    var l = 0, c = 0, count;
     
     // Empty board
     board = [];
-    for (l = 0; l < lines+2; l++) {
+    debugger;
+    for (; l < lines+2; l++) {
+        debugger;
         board[l] = [];
-        for (c = 0; c < collumns+2; c++) {
+        for (; c < collumns+2; c++) {
             board[l][c] = 0;
         }
     }
     
+    debugger;
+    
     // Place mines in board (only valid positions)
     count = 0;
-    for (l = 1; l <= lines; l++) {
-        for (c = 1; c <= collumns; c++) {
+    l = 1;
+    c = 1;
+    for (; l <= lines; l++) {
+        for (; c <= collumns; c++) {
             if (myArray[count++] === 1) {
             	// Places bomb (-1) in given position, and increases count on neighboring cells
             	board[l][c] = -1;
