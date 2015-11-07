@@ -104,20 +104,16 @@ function fisherYates (myArray) {
 // Here I use a [lines+2][collumns+2] board with valid entries [1..lines][1..collumns].
 // This makes it easier to use functions such as insertBomb without corner verifications.
 function makeBoard(myArray) {
-    var l = 0, c = 0, count;
+    var l, c, count;
     
     // Empty board
     board = [];
-    debugger;
-    for (; l < lines+2; l++) {
-        debugger;
+    for (l = 0; l < lines+2; l++) {
         board[l] = [];
-        for (; c < collumns+2; c++) {
+        for (c = 0; c < collumns+2; c++) {
             board[l][c] = 0;
         }
     }
-    
-    debugger;
     
     // Place mines in board (only valid positions)
     count = 0;
