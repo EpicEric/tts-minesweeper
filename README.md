@@ -18,5 +18,5 @@ This is just an amateur project, so bugs and feedback are to be expected.
 
 ## Links
 
-* [Steam Workshop submission](http://steamcommunity.com/app/286160/workshop/)
+* [Steam Workshop submission](http://steamcommunity.com/sharedfiles/filedetails/?id=405119224)
 * [Webpage](http://ericpires.com.br/tts/minesweeper)
