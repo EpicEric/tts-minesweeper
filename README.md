@@ -1,10 +1,18 @@
 # tts-minesweeper
-Tabletop Simulator script written in C and Swift for generating JSON files of Minesweeper games.
+Tabletop Simulator modding script written in JavaScript for generating JSON files of Minesweeper games.
 
 -------------------------------------------
 
-This script generates a Minesweeper board in C or Swift using a matrix (board.c), and then uses Tabletop Simulator's JSON configuration to automatically set up the objects correctly (json.c).
+This script generates a Minesweeper board in JavaScript using a 1-dimensional array (to place mines) and a 2-dimensional array to represent the board, and then uses Tabletop Simulator's JSON file format to automatically set up the objects correctly.
 
-For instructions on how to use it, refer to the Workshop page: http://steamcommunity.com/sharedfiles/filedetails/?id=405119224
+Previous versions of this script included executables written in C (for Windows) and Swift (for OS X). Now, it doesn't require any extra downloads other than the save file.
 
-This is just an amateur project, bugs are to be expected.
+For instructions on how to use it, please refer to the Workshop page: http://steamcommunity.com/sharedfiles/filedetails/?id=405119224
+
+This is just an amateur project, so bugs and feedback are to be expected.
+
+## TO-DO
+
+1. Instructions on page
+2. Difficulty indicator on options
+3. Folder selection and autoname

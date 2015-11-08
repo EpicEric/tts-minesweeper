@@ -8,10 +8,12 @@
         <script src="minesweeper.js" type="text/javascript"></script>
         <script src="FileSaver.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body onload="checkBrowser()">
         <main>
-            <h1>Minesweeper Generator - Tabletop Simulator</h1>
-            <h2>Version 1.0</h2>
+            <div id="title">
+                <h1>Minesweeper Generator - Tabletop Simulator</h1>
+                <h3>Version 1.0</h2>
+            </div>
             <div id="fields">
                 <input type="range" min="2" max="18" value="10" step="1" oninput="setL(this.value)" />
                 <br>Lines (2 to 18) = <span id="valueL">10</span><br><br>
@@ -23,6 +25,11 @@
             <br>
             <div id="generation">
                 <input type="button" value="Generate and Save" onclick="generate()" />
+            </div>
+            <br>
+            <div id="instructions">
+                <h2>Instructions</h2>
+                
             </div>
         </main>
     </body>

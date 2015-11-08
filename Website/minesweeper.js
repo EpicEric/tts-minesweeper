@@ -10,6 +10,15 @@ var board = [];
 /*                                                             */
 /***************************************************************/
 
+// Checks if FileSaver.js is compatible. If it isn't, show alert.
+function checkBrowser() {
+    try {
+        var isFileSaverSupported = !!new Blob;
+    } catch (e) {
+        window.alert("This browser is not supported! Please, use a recent version of Chrome or Firefox instead.");
+    }
+}
+
 // Grabs and sets number of lines from slider
 function setL(value) {
     document.getElementById('valueL').innerHTML = value;
