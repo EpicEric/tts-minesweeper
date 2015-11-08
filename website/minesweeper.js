@@ -47,5 +47,5 @@ function generate() {
     // Last time validation, in case user ends up messing with vars
     adjustMines();
     
-    //TO-DO: Call PHP script
+    <?php echo generateBoard(lines, collumns, mines);?>
 }
