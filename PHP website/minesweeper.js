@@ -13,6 +13,7 @@ var maxMines = 99;
 function setL(value) {
     document.getElementById('valueL').innerHTML = value;
     lines = parseInt(value);
+    
     adjustMines();
 }
     
@@ -44,8 +45,11 @@ function adjustMines() {
 
 // Function called by button press at the end of the page
 function generate() {
+    var php;
     // Last time validation, in case user ends up messing with vars
     adjustMines();
     
-    <?php echo generateBoard(lines, collumns, mines);?>
+    php = "<?php echo generateBoard(" + lines + ", " + collumns + ", " + mines + ");?>";
+    
+    document.getElementById("php_code").innerHTML = php;
 }
