@@ -13,6 +13,10 @@ This is just an amateur project, so bugs and feedback are to be expected.
 
 ## TO-DO
 
-1. Instructions on page
-2. Difficulty indicator on options
-3. Folder selection and autoname
+1. Folder selection
+2. Autoname
+
+## Links
+
+* [Steam Workshop submission](http://steamcommunity.com/app/286160/workshop/)
+* [Webpage](http://ericpires.com.br/tts/minesweeper)

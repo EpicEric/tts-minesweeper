@@ -1,7 +1,7 @@
-var lines = 10;
-var collumns = 10;
-var mines = 20;
-var maxMines = 99;
+var lines = 8;
+var collumns = 8;
+var mines = 10;
+var maxMines = 63;
 var board = [];
 
 /***************************************************************/
@@ -15,27 +15,27 @@ function checkBrowser() {
     try {
         var isFileSaverSupported = !!new Blob;
     } catch (e) {
-        window.alert("This browser is not supported! Please, use a recent version of Chrome or Firefox instead.");
+        window.alert("This browser is not supported!\nPlease, use a recent version of Chrome or Firefox instead.");
     }
 }
 
 // Grabs and sets number of lines from slider
 function setL(value) {
-    document.getElementById('valueL').innerHTML = value;
+    document.getElementById("valueL").innerHTML = value;
     lines = parseInt(value);
     adjustMines();
 }
     
 // Grabs and sets number of collumns from slider
 function setC(value) {
-    document.getElementById('valueC').innerHTML = value;
+    document.getElementById("valueC").innerHTML = value;
     collumns = parseInt(value);
     adjustMines();
 }
 
 // Grabs and sets number of mines from slider
 function setM(value) {
-    document.getElementById('valueM').innerHTML = value;
+    document.getElementById("valueM").innerHTML = value;
     mines = parseInt(value);
 }
 
@@ -43,11 +43,11 @@ function setM(value) {
 function adjustMines() {
     maxMines = (lines*collumns) - 1;
     
-    document.getElementById('mineSlider').setAttribute("max", maxMines);
-    document.getElementById('valueMax').innerHTML = maxMines;
+    document.getElementById("mineSlider").setAttribute("max", maxMines);
+    document.getElementById("valueMax").innerHTML = maxMines;
     
     if (mines > maxMines) {
-        document.getElementById('valueM').innerHTML = maxMines;
+        document.getElementById("valueM").innerHTML = maxMines;
         mines = parseInt(maxMines);
     }
 }
@@ -62,6 +62,29 @@ function generate() {
     generateJSON();
     
     board = [];
+}
+
+function difficulty1() {
+    reset(8, 8, 10);
+}
+
+function difficulty2() {
+    reset(16, 16, 40);
+}
+
+function difficulty3() {
+    reset(17, 28, 99);
+}
+
+// Resets sliders to given values
+function reset(l, c, m) {
+    document.getElementById("lineSlider").value = l;
+    setL(l);
+    document.getElementById("collumnSlider").value = c;
+    setC(c);
+    document.getElementById("mineSlider").value = m;
+    setM(m);
+    
 }
 
 /***************************************************************/
@@ -163,9 +186,9 @@ function generateJSON() {
         posZ = (lines - !(lines%2));
     
     /* Start save-file object */
-    saveFile.SaveName = "Minesweeper " + lines + "x" + collumns + " (" + mines + ")";
+    saveFile.SaveName = "Minesweeper " + lines + "x" + collumns + " (" + mines + " mines)";
     saveFile.GameMode = "Minesweeper";
-    saveFile.Date = "11/7/2015 7:16:23 PM";
+    saveFile.Date = "11/7/2015 7:16:23 PM"; // TO-DO
     saveFile.Table = "Table_RPG";
     saveFile.Sky = "Sky_Field";
     saveFile.Note = "MINESWEEPER\n\n" + lines + " lines\n" + collumns + " collumns\n" + mines + " mines (" + Math.floor(100*mines/(lines*collumns)) + "%)";
@@ -191,7 +214,7 @@ function generateJSON() {
     saveFile.VectorLines = [];
     saveFile.ObjectStates = [];
     
-    /* Flags deck */
+    // Flags deck
     var flagsDeck = new Object();
     flagsDeck.Name = "Deck";
     flagsDeck.Transform = new Object();
@@ -217,7 +240,7 @@ function generateJSON() {
     flagsDeck.Sticky = true;
     flagsDeck.SidewaysCard = false;
     flagsDeck.DeckIDs = [];
-    for (var i = 0; i < mines; i++) { /* Adds one flag for each mine */
+    for (var i = 0; i < mines; i++) { // Adds one flag for each mine
         flagsDeck.DeckIDs.push(110);
     }
     flagsDeck.CustomDeck = {
@@ -228,7 +251,7 @@ function generateJSON() {
     }
     saveFile.ObjectStates.push(flagsDeck);
     
-    /* Interrogation mark deck */
+    // Interrogation mark deck
     var interrogationDeck = new Object();
     interrogationDeck.Name = "Deck";
     interrogationDeck.Transform = new Object();
@@ -254,7 +277,7 @@ function generateJSON() {
     interrogationDeck.Sticky = true;
     interrogationDeck.SidewaysCard = false;
     interrogationDeck.DeckIDs = [];
-    for (var i = 0; i < mines; i++) { /* Adds one ? for each mine */
+    for (var i = 0; i < mines; i++) { // Adds one ? for each mine
         interrogationDeck.DeckIDs.push(111);
     }
     interrogationDeck.CustomDeck = {
@@ -265,7 +288,7 @@ function generateJSON() {
     }
     saveFile.ObjectStates.push(interrogationDeck);
     
-    /* Regular game cards */
+    // Regular game cards
     for (var i = 1; i <= lines; i++) {
         for (var j = 1; j <= collumns; j++) {
             var card = addCard(i, j, posX, posZ)
@@ -275,10 +298,10 @@ function generateJSON() {
     /* End save-file object */
     
     var json = JSON.stringify(saveFile, null, '\t');
-    saveTextAs(json, "TS_Save_10.json"); // FileSaver.js by Eli Grey, modified by Brian Chen
+    saveTextAs(json, "Minesweeper.json"); // FileSaver.js by Eli Grey, modified by Brian Chen
 }
 
-/* Add each card on the board */
+// Add each card on the board
 function addCard(line, collumn, posX, posZ) {
     var card = new Object();
     
