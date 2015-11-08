@@ -51,6 +51,8 @@ function generate() {
     generateBoard();
     
     generateJSON();
+    
+    board = [];
 }
 
 /***************************************************************/
@@ -152,12 +154,12 @@ function generateJSON() {
         posZ = (lines - !(lines%2));
     
     /* Start save-file object */
-    saveFile.SaveName = "Minesweeper " + lines + "x" + collumns + " " + mines + "M";
+    saveFile.SaveName = "Minesweeper " + lines + "x" + collumns + " (" + mines + ")";
     saveFile.GameMode = "Minesweeper";
     saveFile.Date = "11/7/2015 7:16:23 PM";
     saveFile.Table = "Table_RPG";
     saveFile.Sky = "Sky_Field";
-    saveFile.Note = "MINESWEEPER\n\n" + lines + " lines\n" + collumns + " collumns\n" + mines + " mines (" + Math.ceil(100*mines/(lines*collumns)) + "%%)";
+    saveFile.Note = "MINESWEEPER\n\n" + lines + " lines\n" + collumns + " collumns\n" + mines + " mines (" + Math.floor(100*mines/(lines*collumns)) + "%)";
     saveFile.Rules = "";
     saveFile.PlayerTurn = "";
     saveFile.Grid = new Object();
@@ -187,7 +189,7 @@ function generateJSON() {
         flagsDeck.Transform.posX = 10.9998751;
         flagsDeck.Transform.posY = 3.76623344;
         flagsDeck.Transform.posZ = -18.99992;
-        flagsDeck.Transform.rotX = -4.097558E-05;
+        flagsDeck.Transform.rotX = 0;
         flagsDeck.Transform.rotY = 180.013916;
         flagsDeck.Transform.rotZ = 180.000015;
         flagsDeck.Transform.scaleX = 0.625;
@@ -196,9 +198,9 @@ function generateJSON() {
     flagsDeck.Nickname = "";
     flagsDeck.Description = "";
     flagsDeck.ColorDiffuse = new Object();
-        flagsDeck.ColorDiffuse.r = 0.713270366;
-        flagsDeck.ColorDiffuse.g = 0.713270366;
-        flagsDeck.ColorDiffuse.b = 0.713270366;
+        flagsDeck.ColorDiffuse.r = 0.713266432;
+        flagsDeck.ColorDiffuse.g = 0.713266432;
+        flagsDeck.ColorDiffuse.b = 0.713266432;
     flagsDeck.Locked = false;
     flagsDeck.Grid = true;
     flagsDeck.Snap = true;
@@ -224,7 +226,7 @@ function generateJSON() {
         interrogationDeck.Transform.posX = 16.9999142;
         interrogationDeck.Transform.posY = 3.76623344;
         interrogationDeck.Transform.posZ = -18.99992;
-        interrogationDeck.Transform.rotX = -4.097558E-05;
+        interrogationDeck.Transform.rotX = 0;
         interrogationDeck.Transform.rotY = 180.013916;
         interrogationDeck.Transform.rotZ = 180.000015;
         interrogationDeck.Transform.scaleX = 0.625;
@@ -233,9 +235,9 @@ function generateJSON() {
     interrogationDeck.Nickname = "";
     interrogationDeck.Description = "";
     interrogationDeck.ColorDiffuse = new Object();
-        interrogationDeck.ColorDiffuse.r = 0.713270366;
-        interrogationDeck.ColorDiffuse.g = 0.713270366;
-        interrogationDeck.ColorDiffuse.b = 0.713270366;
+        interrogationDeck.ColorDiffuse.r = 0.713266432;
+        interrogationDeck.ColorDiffuse.g = 0.713266432;
+        interrogationDeck.ColorDiffuse.b = 0.713266432;
     interrogationDeck.Locked = false;
     interrogationDeck.Grid = true;
     interrogationDeck.Snap = true;
@@ -263,7 +265,7 @@ function generateJSON() {
     }
     /* End save-file object */
     
-    var json = JSON.stringify(saveFile);
+    var json = JSON.stringify(saveFile, null, '\t');
     saveTextAs(json, "TS_Save_10.json"); // FileSaver.js by Eli Grey, modified by Brian Chen
 }
 
@@ -272,12 +274,12 @@ function addCard(line, collumn, posX, posZ) {
     var card = new Object();
     
     // For each card, modify posX [1], posZ [2] and ID [3]
-    card.Name = "Deck";
+    card.Name = "Card";
     card.Transform = new Object();
         card.Transform.posX = (posX + 2.0*(collumn-1)); /* [1] */
         card.Transform.posY = 3.76623344;
         card.Transform.posZ = (posZ - 2.0*(line-1)); /* [2] */
-        card.Transform.rotX = -4.097558E-05;
+        card.Transform.rotX = 0;
         card.Transform.rotY = 180.013916;
         card.Transform.rotZ = 180.000015;
         card.Transform.scaleX = 0.625;
@@ -286,9 +288,9 @@ function addCard(line, collumn, posX, posZ) {
     card.Nickname = "";
     card.Description = "";
     card.ColorDiffuse = new Object();
-        card.ColorDiffuse.r = 0.713270366;
-        card.ColorDiffuse.g = 0.713270366;
-        card.ColorDiffuse.b = 0.713270366;
+        card.ColorDiffuse.r = 0.713266432;
+        card.ColorDiffuse.g = 0.713266432;
+        card.ColorDiffuse.b = 0.713266432;
     card.Locked = false;
     card.Grid = true;
     card.Snap = true;
@@ -296,9 +298,9 @@ function addCard(line, collumn, posX, posZ) {
     card.Sticky = true;
     card.SidewaysCard = false;
     if (board[line][collumn] == -1) { /* [3] */
-        card.DeckIDs = 109; // Mine cards
+        card.CardID = 109; // Mine cards
     } else {
-        card.DeckIDs = 100 + board[line][collumn]; // Cards 0 to 8 use IDs 100 to 108 respectively
+        card.CardID = 100 + board[line][collumn]; // Cards 0 to 8 use IDs 100 to 108 respectively
     }
     card.CustomDeck = {
         1: {
